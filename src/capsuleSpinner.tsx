@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import * as THREE from "three";
-import { Layers } from 'three';
 
 
-
-export class GameWindow extends Component {
+export class CapsuleSpinner extends Component {
     //test: React.RefObject<unknown>;
     mount: any;
     state = {
         gameWon : false
     }
 
-    
+
+
     componentDidMount(){
+
+        const hslToString = function(hsl : {h : number, s : number, l : number}) : string {
+            let {h, s, l} = hsl;
+            return "hsl(" + h.toString() + "," + s.toString() + "%," + l.toString() + "%)"
+        }
         // === THREE.JS CODE START ===
         var scene = new THREE.Scene();
         var camera = new THREE.PerspectiveCamera( 
@@ -29,10 +33,12 @@ export class GameWindow extends Component {
 
         this.mount.appendChild( renderer.domElement );
 
-        const geometry = new THREE.BoxGeometry( 1, 1.5, 1 );
-        const material = new THREE.MeshPhongMaterial( { color: 0xaa99d4 } )
-        const cube = new THREE.Mesh( geometry, material );        
-        scene.add( cube );
+        var capsuleColor = {h : 11, s : 30, l : 50}
+
+        const geometry = new THREE.ConeGeometry(0.7, 1, 5);
+        const material = new THREE.MeshLambertMaterial( { color: hslToString(capsuleColor) } )
+        const capsule = new THREE.Mesh( geometry, material );        
+        scene.add( capsule );
 
         
 
@@ -69,7 +75,7 @@ export class GameWindow extends Component {
             yRate = Math.round(yRate * 1000) / 1000
         }
         
-
+        
         var animate = function (this: any, callback: Function) {
             
             //light.position.x += 0.05
@@ -79,9 +85,11 @@ export class GameWindow extends Component {
                 cancelAnimationFrame( frame )
                 callback();
             } else {
-                
-                cube.rotation.x += xRate;
-                cube.rotation.y += yRate;
+
+                capsuleColor.h = 117 - (((xRate + yRate)*1000) + 25);
+                capsule.material.color = new THREE.Color(hslToString(capsuleColor))
+                capsule.rotation.x += xRate;
+                capsule.rotation.y += yRate;
                 renderer.render( scene, camera );
             }
           
@@ -98,7 +106,7 @@ export class GameWindow extends Component {
 
         let gameWon = this.state.gameWon
         let winText = <h1 style={{margin : 0, color : "lightblue", position : "absolute"}}>
-            Use the arrow keys to try and stop the block from spinning!
+            Tap the arrow keys to stop the capsule from spinning!
         </h1>
         if (gameWon){
             winText = <h1 style={{

@@ -1,13 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import "./gameWindow"
-import { GameWindow } from './gameWindow';
+import { CapsuleSpinner } from './capsuleSpinner';
 
 function App() {
   return (
     <div className="App">
-      <GameWindow></GameWindow>
+      <CapsuleSpinner></CapsuleSpinner>
     </div>
   );
 }
