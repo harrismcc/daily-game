@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/daily-game/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/daily-game/static/js/main.fdb38ffd.chunk.js",
+    "main.js.map": "/daily-game/static/js/main.fdb38ffd.chunk.js.map",
+    "runtime-main.js": "/daily-game/static/js/runtime-main.474d9f4f.js",
+    "runtime-main.js.map": "/daily-game/static/js/runtime-main.474d9f4f.js.map",
+    "static/js/2.75c61395.chunk.js": "/daily-game/static/js/2.75c61395.chunk.js",
+    "static/js/2.75c61395.chunk.js.map": "/daily-game/static/js/2.75c61395.chunk.js.map",
+    "static/js/3.a3874e18.chunk.js": "/daily-game/static/js/3.a3874e18.chunk.js",
+    "static/js/3.a3874e18.chunk.js.map": "/daily-game/static/js/3.a3874e18.chunk.js.map",
+    "index.html": "/daily-game/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/daily-game/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.75c61395.chunk.js.LICENSE.txt": "/daily-game/static/js/2.75c61395.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.474d9f4f.js",
+    "static/js/2.75c61395.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.fdb38ffd.chunk.js"
+  ]
+}
